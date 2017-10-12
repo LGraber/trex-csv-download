@@ -1,0 +1,18 @@
+{
+  "name": "csv-export",
+  "version": "0.1.0",
+  "description": "Sample for downloading subset of data to csv",
+  "scripts": {
+    "start": "node node_modules/http-server/bin/http-server -p 8448",
+    "lint": "semistandard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LGraber/trex-csv-export.git"
+  },
+  "author": "lgraber",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
