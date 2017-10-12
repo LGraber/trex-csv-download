@@ -6,16 +6,68 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
         <!-- Extension -->
         <!-- script src="./tableau-addin-0.5.0.js"></script -->
 
         <!-- CSV Export js logic -->
+        <script src="./list-helper.js"></script>
         <script src="./csv-export.js"></script>
     </head>
-    <body>
-        <button type="button" class="btn btn-primary" onclick="onBtnClick();">Update</button>
+    <style>
+        .state-icon {
+            left: -5px;
+        }
+        .list-group-item-primary {
+            color: rgb(255, 255, 255);
+            background-color: rgb(66, 139, 202);
+        }
+
+        /* DEMO ONLY - REMOVES UNWANTED MARGIN */
+        .well .list-group {
+            margin-bottom: 0px;
+        }   
+    </style>
+    <body onload="onBodyLoad();">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#download-modal">Update</button>
+
+        <!-- Modal for setting image, sheet and field -->
+        <div class="modal" id="download-modal" style="margin-top:20px;">
+            <div class="modal-dialog" role="dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon">Sheet</span>
+                                    <select id="sheet-names" class="form-control">
+                                        <option value="Hello">Hello</option>
+                                        <option value="World">World</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <h3 class="text-center">Fields</h3>
+                                <div class="well" style="max-height: 300px;overflow: auto;">
+                                    <ul id="field-list" class="list-group checked-list-box">
+                                        <!--li class="list-group-item">Cras justo odio</li -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="onSaveClicked();">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
